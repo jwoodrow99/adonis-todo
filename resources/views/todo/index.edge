@@ -1,0 +1,44 @@
+@layout('layouts/master')
+
+@section('content')
+    {{ style('assets/styles/todo/index') }}
+    <h1>My To-Do's</h1>
+
+    <form action="{{ route('todo.store') }}" method="post">
+        {{ csrfField() }}
+
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title">
+
+        <input type="submit" value="Submit!">
+
+    </form>
+
+    <br><br>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>todo</th>
+            <th class="rm-clm">Remove</th>
+        </tr>
+        @each(todo in todos)
+
+            <form id="{{'done-form' + todo.id}}" action="{{ route('todo.update', { id: todo.id }) + '?_method=PATCH' }}" method="post" style="display: none;">{{ csrfField() }}</form>
+
+            <form id="{{'remove-form' + todo.id}}" action="{{ route('todo.destroy', { id: todo.id }) + '?_method=DELETE' }}" method="post" style="display: none;">{{ csrfField() }}</form>
+
+            @if(todo.completed)
+                <tr class="done">
+            @else
+                <tr>
+            @endif
+                <td class="id">{{todo.id}}</td>
+
+                <td class="title" onclick="event.preventDefault(); document.getElementById('{{'done-form' + todo.id}}').submit();">{{todo.title}}</td>
+
+                <td class="remove-btn" onclick="event.preventDefault(); document.getElementById('{{'remove-form' + todo.id}}').submit();">- REMOVE -</td>
+            </tr>
+        @endeach
+    </table>
+@endsection

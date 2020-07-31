@@ -1,0 +1,24 @@
+{{ style('assets/styles/partials/header') }}
+
+<nav>
+    <div class="links">
+        <a href="{{ route('home') }}">Home</a>
+        <a href="{{ route('todo.index') }}">Todos</a>
+    </div>
+
+    <div class="login">
+        @loggedIn
+            <form id="logout-form" action="{{ route('auth.logout') }}" method="post" style="display: none;">{{ csrfField() }}</form>
+            <a href="{{ route('auth.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ auth.user.username }} - Logout</a>
+        @else
+            <a href="{{ route('auth.login') }}">Login</a>
+            <a href="{{ route('auth.register') }}">Register</a>
+        @endloggedIn
+    </div>
+<nav>
+
+<div class="flash-notification">
+    @if(flashMessage('notification'))
+        <p class="err">{{flashMessage('notification')}}</p>
+    @endif
+</div>

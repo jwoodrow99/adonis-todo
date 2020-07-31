@@ -1,0 +1,17 @@
+@layout('layouts/master')
+
+@section('content')
+    <h1>Reset</h1>
+
+    <form action="{{ route('auth.reset') }}" method="post">
+        {{ csrfField() }}
+
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email">
+
+        <br><br>
+
+        <input type="submit" value="Submit!">
+
+    </form>
+@endsection

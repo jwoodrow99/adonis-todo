@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+:root {
+    --header-h: 40px;
+    --footer-h: 40px;
+}
+
+body, body > * {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: grid;
+    grid-template-rows: var(--header-h) auto var(--footer-h);
+    grid-template-columns: auto;
+    grid-template-areas: 
+        'header'
+        'main'
+        'footer'
+    ;
+}
+
+body > header {
+    grid-area: header;
+}
+
+body > main {
+    grid-area: main;
+    min-height: calc(100vh - (var(--header-h) + var(--footer-h)));
+}
+
+body > footer {
+    grid-area: footer;
+}

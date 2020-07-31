@@ -6,6 +6,17 @@ const Env = use('Env')
 /** @type {import('@adonisjs/ignitor/src/Helpers')} */
 const Helpers = use('Helpers')
 
+// Change DB connection vars to Heroku PG
+const parsePG = require('pg-connection-string').parse;
+if (Env.get('NODE_ENV') == 'heroku'){
+    let herokuPG = parsePG(Env.get('DATABASE_URL'));
+    Env.set('DB_HOST', herokuPG.host),
+    Env.set('DB_PORT', herokuPG.port),
+    Env.set('DB_USER', herokuPG.user),
+    Env.set('DB_PASSWORD', herokuPG.password),
+    Env.set('DB_DATABASE', herokuPG.database)
+}
+
 module.exports = {
   /*
   |--------------------------------------------------------------------------

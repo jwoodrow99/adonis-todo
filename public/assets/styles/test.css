@@ -1,0 +1,12 @@
+body > header {
+    background-color: lightblue;
+}
+
+body > main {
+    background-color: tomato;
+}
+
+body > footer {
+    background-color: lightgreen;
+}
+
