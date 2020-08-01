@@ -20,7 +20,7 @@ class TodoController {
    * @param {View} ctx.view
    */
     async index ({ request, response, auth, view }) {
-        const todos = await Todo.query().where('user_id', auth.user.id).fetch()
+        let todos = await Todo.query().where('user_id', auth.user.id).orderBy('created_at', 'desc').fetch();
         return view.render('todo/index', {
             title: "todo",
             todos: todos.toJSON(),
