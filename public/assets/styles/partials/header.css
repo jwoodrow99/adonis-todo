@@ -31,13 +31,10 @@ nav div a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    text-decoration: none;
     height: 100%;
     padding: 0px 10px;
 }
 
 nav div a:hover {
-    color: Gainsboro;
     background-color: darkslategray;
 }

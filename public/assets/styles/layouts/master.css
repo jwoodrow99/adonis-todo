@@ -34,3 +34,12 @@ body > main {
 body > footer {
     grid-area: footer;
 }
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+a:hover {
+    color: Gainsboro;
+}

@@ -9,7 +9,7 @@ class LoginController {
     async login({ request, response, auth, session, }) {
         const { email, password } = request.all();
         await auth.attempt(email, password);
-        return response.redirect('/', false, 301);
+        return response.redirect('/todo', false, 301);
     }
 
     async logout({ request, response, auth, session, }) {

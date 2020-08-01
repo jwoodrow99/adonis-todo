@@ -1,3 +1,7 @@
+main > *{
+    text-align: center;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -14,8 +18,22 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-tr.done .title {
+tr:nth-child(odd) {
+  background-color: white;
+}
+
+tr td.title-item {
+    text-decoration: none;
+}
+
+tr td.title-item:hover {
+    cursor: pointer;
+    background-color: lightcoral;
+}
+
+tr.done td.title-item {
     text-decoration: line-through;
+    background-color: tomato;
 }
 
 .remove-btn{
@@ -38,6 +56,34 @@ tr.done .title {
     width: 20px;
 }
 
+.date-c, .date-u{
+    width: 150px;
+}
+
 .rm-clm{
     width: 100px;
+}
+
+main {
+    background-color: lightblue;
+}
+
+main form input[type='text'] {
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 25vw;
+    font-size: 1.25em;
+    margin-right: 20px;
+}
+
+main form input[type='submit'] {
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 7vw;
+    font-size: 1.25em;
+    background-color: cornflowerblue;
+    color: white;
+    align-self: center;
 }

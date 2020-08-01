@@ -7,8 +7,7 @@
     <form action="{{ route('todo.store') }}" method="post">
         {{ csrfField() }}
 
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" placeholder="New Todo...">
 
         <input type="submit" value="Submit!">
 
@@ -18,8 +17,10 @@
 
     <table>
         <tr>
-            <th>ID</th>
-            <th>todo</th>
+            <th class="id">ID</th>
+            <th class="title">Todo Name (Click Todo name to mark as done)</th>
+            <th class="date-c">Date Created</th>
+            <th class="date-u">Last Update</th>
             <th class="rm-clm">Remove</th>
         </tr>
         @each(todo in todos)
@@ -35,7 +36,11 @@
             @endif
                 <td class="id">{{todo.id}}</td>
 
-                <td class="title" onclick="event.preventDefault(); document.getElementById('{{'done-form' + todo.id}}').submit();">{{todo.title}}</td>
+                <td class="title-item" onclick="event.preventDefault(); document.getElementById('{{'done-form' + todo.id}}').submit();">{{todo.title}}</td>
+
+                <td class="date-c">{{todo.created_at}}</td>
+
+                <td class="date-u">{{todo.updated_at}}</td>
 
                 <td class="remove-btn" onclick="event.preventDefault(); document.getElementById('{{'remove-form' + todo.id}}').submit();">- REMOVE -</td>
             </tr>

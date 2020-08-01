@@ -1,0 +1,50 @@
+main {
+    background-image: url('/assets/images/background.jpg');
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+main > div {
+    background-color: rgba(200, 200, 200, .5);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+main > div a:hover{
+    color: darkslategray;
+}
+
+main > div form p {
+    text-align: left;
+    padding: 0px;
+    margin: 3px;
+}
+
+main > div form input[type='text'], main > div form input[type='password'] {
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 25vw;
+    font-size: 1.25em;
+}
+
+main > div form input[type='submit'] {
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+    width: 15vw;
+    font-size: 1.25em;
+    background-color: cornflowerblue;
+    color: white;
+    align-self: center;
+}
+
+main > div form input[type='submit']:hover {
+    background-color: darkslateblue;
+}
+

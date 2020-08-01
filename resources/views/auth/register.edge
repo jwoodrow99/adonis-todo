@@ -1,38 +1,41 @@
 @layout('layouts/master')
 
 @section('content')
-    <h1>Register</h1>
+    {{ style('assets/styles/auth/register') }}
+    <div>
+        <h1>Register</h1>
 
-    <form action="{{ route('auth.register') }}" method="post">
-        {{ csrfField() }}
+        <form action="{{ route('auth.register') }}" method="post">
+            {{ csrfField() }}
 
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
+            <p>Username</p>
+            <input type="text" name="username" id="username" placeholder="JohnDoe">
+
+            <br><br>
+
+            <p>Email</p>
+            <input type="text" name="email" id="email" placeholder="johndoe@example.com">
+            {{ elIf('<span>$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
+
+            <br><br>
+
+            <p>Password</p>
+            <input type="password" name="password" id="password">
+            {{ elIf('<span>$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
+
+            <br><br>
+
+            <p>Password Confirmation</p>
+            <input type="password" name="password_confirmation" id="password_confirmation">
+
+            <br><br>
+
+            <input type="submit" value="Submit!">
+
+        </form>
 
         <br><br>
 
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email">
-        {{ elIf('<span>$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
-
-        <br><br>
-
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        {{ elIf('<span>$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
-
-        <br><br>
-
-        <label for="password_confirmation">Password Confirmation</label>
-        <input type="password" name="password_confirmation" id="password_confirmation">
-
-        <br><br>
-
-        <input type="submit" value="Submit!">
-
-    </form>
-
-    <br><br>
-
-    <a href="{{ route('auth.loginForm') }}">Already have an account?</a>
+        <a href="{{ route('auth.loginForm') }}">Already have an account?</a>
+    <div>
 @endsection
