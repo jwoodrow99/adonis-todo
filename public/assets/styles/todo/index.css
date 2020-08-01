@@ -29,6 +29,10 @@ tr.done .title {
     cursor: pointer;
 }
 
+.title:hover{
+    cursor: pointer;
+}
+
 .id {
     font-weight: bold;
     width: 20px;
