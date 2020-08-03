@@ -1,71 +1,9 @@
-main > *{
-    text-align: center;
-}
-
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-tr:nth-child(odd) {
-  background-color: white;
-}
-
-tr td.title-item {
-    text-decoration: none;
-}
-
-tr td.title-item:hover {
-    cursor: pointer;
-    background-color: lightcoral;
-}
-
-tr.done td.title-item {
-    text-decoration: line-through;
-    background-color: tomato;
-}
-
-.remove-btn{
-    background-color: tomato;
-    font-weight: bold;
-    text-align: center;
-}
-
-.remove-btn:hover{
-    background-color: red;
-    cursor: pointer;
-}
-
-.title:hover{
-    cursor: pointer;
-}
-
-.id {
-    font-weight: bold;
-    width: 20px;
-}
-
-.date-c, .date-u{
-    width: 150px;
-}
-
-.rm-clm{
-    width: 100px;
-}
-
 main {
     background-color: lightblue;
+}
+
+main > *{
+    text-align: center;
 }
 
 main form input[type='text'] {
@@ -86,4 +24,65 @@ main form input[type='submit'] {
     background-color: cornflowerblue;
     color: white;
     align-self: center;
+}
+
+/* Table styling */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+table tr:nth-child(odd) {
+  background-color: white;
+}
+
+table td, table th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+table tr .id {
+    font-weight: bold;
+}
+
+table tr td.title-item:hover {
+    cursor: pointer;
+    background-color: lightcoral;
+}
+
+table tr.done td.title-item {
+    text-decoration: line-through;
+    background-color: tomato;
+}
+
+table tr td.remove-btn{
+    background-color: tomato;
+    font-weight: bold;
+    text-align: center;
+}
+
+table tr td.remove-btn:hover{
+    background-color: red;
+    cursor: pointer;
+}
+
+
+/* Table Spacing */
+
+table .id {
+    width: 20px;
+}
+
+table .date-c, table .date-u{
+    width: 150px;
+}
+
+table .rm-clm{
+    width: 100px;
 }

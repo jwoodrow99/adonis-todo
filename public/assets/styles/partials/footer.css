@@ -1,10 +1,10 @@
 footer {
     background-color: slategray;
-}
-
-body > footer p {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+body > footer p {
     color: white;
 }

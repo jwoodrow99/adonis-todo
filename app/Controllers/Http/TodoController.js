@@ -10,15 +10,12 @@ const Todo = use('App/Models/Todo');
  * Resourceful controller for interacting with todos
  */
 class TodoController {
-  /**
-   * Show a list of all todos.
-   * GET todos
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
+
+    /*
+        This is an example of a resource controller, that takes advantage of the resource route function.
+        We are only using a few of the resource controller functions as all of the crud actions can be done on one page.
+    */
+
     async index ({ request, response, auth, view }) {
         let todos = await Todo.query().where('user_id', auth.user.id).orderBy('created_at', 'desc').fetch();
         return view.render('todo/index', {
@@ -27,27 +24,10 @@ class TodoController {
         });
     }
 
-  /**
-   * Render a form to be used for creating a new todo.
-   * GET todos/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
     async create ({ request, response, view }) {
-
+        return response.redirect('/todo', false, 301);
     }
 
-  /**
-   * Create/save a new todo.
-   * POST todos
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
     async store ({ request, auth, response }) {
         await Todo.create({
             user_id: auth.user.id,
@@ -57,40 +37,14 @@ class TodoController {
         return response.redirect('back');
     }
 
-  /**
-   * Display a single todo.
-   * GET todos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
     async show ({ params, request, response, view }) {
-        return view.render('todo/show', {title: "todo"});
+        return response.redirect('/todo', false, 301);
     }
 
-  /**
-   * Render a form to update an existing todo.
-   * GET todos/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
     async edit ({ params, request, response, view }) {
-        return view.render('todo/edit', {title: "todo"});
+        return response.redirect('/todo', false, 301);
     }
 
-  /**
-   * Update todo details.
-   * PUT or PATCH todos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
     async update ({ params, request, auth, response }) {
         const todo = await Todo.findOrFail(params.id);
 
@@ -109,14 +63,6 @@ class TodoController {
         return response.redirect('back');
     }
 
-  /**
-   * Delete a todo with id.
-   * DELETE todos/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
     async destroy ({ params, request, auth, response }) {
         const todo = await Todo.findOrFail(params.id)
 

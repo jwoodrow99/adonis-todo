@@ -23,6 +23,7 @@
             <th class="date-u">Last Update</th>
             <th class="rm-clm">Remove</th>
         </tr>
+
         @each(todo in todos)
 
             <form id="{{'done-form' + todo.id}}" action="{{ route('todo.update', { id: todo.id }) + '?_method=PATCH' }}" method="post" style="display: none;">{{ csrfField() }}</form>
@@ -45,5 +46,6 @@
                 <td class="remove-btn" onclick="event.preventDefault(); document.getElementById('{{'remove-form' + todo.id}}').submit();">- REMOVE -</td>
             </tr>
         @endeach
+        
     </table>
 @endsection
