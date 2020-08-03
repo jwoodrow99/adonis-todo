@@ -5,6 +5,6 @@
 To run on local (In cloned repo):
 ```bash
 npm i
-adonis migration run
+adonis migration:run
 npm run serve
 ```
