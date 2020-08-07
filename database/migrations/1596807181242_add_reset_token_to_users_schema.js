@@ -7,7 +7,7 @@ class AddResetTokenToUsersSchema extends Schema {
   up () {
     this.alter('users', (table) => {
         table.string('reset_token').nullable().default(null);
-        table.dateTime('reset_at').nullable().default(null);
+        table.integer('reset_at').nullable().default(null);
     })
   }
 
