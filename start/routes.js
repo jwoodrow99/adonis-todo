@@ -34,9 +34,14 @@ Route.group(() => {
 
     // Reset
     Route.get('reset', 'Auth/ResetController.index').as('auth.resetForm');
-    Route.post('reset', 'Auth/ResetController.reset').as('auth.reset');
+    Route.post('reset', 'Auth/ResetController.send').as('auth.resetSend');
+    Route.get('reset/:token', 'Auth/ResetController.resetInfo').as('auth.resetInfo');
+    Route.post('reset/:token', 'Auth/ResetController.reset').as('auth.reset');
 
     // Verify
-    Route.get('verify', 'Auth/VerifyController.index').as('auth.verifyForm');
-    Route.post('verify', 'Auth/VerifyController.verify').as('auth.verify');
+    Route.get('verify/:user_id/:token', 'Auth/VerifyController.index').as('auth.verify');
 }).prefix('auth');
+
+// If any route that is not defined is accessed, render home
+// Route.any('*', ({ view }) => view.render('home', {title: "Home"}));
+Route.any('*', ({ view }) => view.render('errors/404'));
