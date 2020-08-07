@@ -7,7 +7,7 @@ class AddVerifyTokenToUsersSchema extends Schema {
   up () {
     this.alter('users', (table) => {
         table.string('verify_token').nullable().default(null);
-        table.integer('verify_at').nullable().default(null);
+        table.string('verify_at').nullable().default(null);
     })
   }
 
