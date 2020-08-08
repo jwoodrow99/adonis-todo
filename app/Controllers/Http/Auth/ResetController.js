@@ -3,6 +3,7 @@
 const User = use('App/Models/User');
 const hash = require('object-hash');
 const Mail = use('Mail');
+const Env = use('Env')
 
 class ResetController {
     index({ request, response, auth, view, session }) {
@@ -21,7 +22,7 @@ class ResetController {
             user.save();
 
             await Mail.send('emails.resetAccount', {
-                route: '/auth/reset/' + token
+                route: Env.get('APP_URL') + '/auth/reset/' + token
             }, (message) => {
                 message
                     .to(user.email)

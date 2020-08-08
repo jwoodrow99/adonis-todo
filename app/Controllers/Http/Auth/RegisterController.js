@@ -3,6 +3,7 @@
 const User = use('App/Models/User');
 const hash = require('object-hash');
 const Mail = use('Mail');
+const Env = use('Env')
 
 class RegisterController {
 
@@ -23,7 +24,7 @@ class RegisterController {
         });
 
         await Mail.send('emails.verifyAccount', {
-            route: '/auth/verify/' + user.id + "/" + token
+            route: Env.get('APP_URL') + '/auth/verify/' + user.id + "/" + token
         }, (message) => {
             message
                 .to(user.email)
