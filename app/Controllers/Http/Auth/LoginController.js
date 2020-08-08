@@ -12,7 +12,7 @@ class LoginController {
         const { email, password } = request.all();
         let user = await User.findByOrFail('email', email);
 
-        if (user.verify_at != null && user.reset_at != null) {
+        if (user.verifyAt != null && user.resetAt != null) {
             await auth.attempt(email, password);
         }
         

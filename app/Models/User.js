@@ -6,6 +6,8 @@ const Hash = use('Hash')
 /** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
 
+const date = require('date-and-time');
+
 class User extends Model {
   static boot () {
     super.boot()
@@ -37,6 +39,16 @@ class User extends Model {
 
     todos () {
         return this.hasMany('App/Models/Todo');
+    }
+
+    // setter to format date field
+    setVerifyAt(verifyAt){
+        return date.format(verifyAt, 'YYYY-MM-DD HH:mm:ss');
+    }
+
+    // setter to format date field
+    setResetAt(resetAt){
+        return date.format(resetAt, 'YYYY-MM-DD HH:mm:ss');
     }
 }
 

@@ -16,7 +16,7 @@ class ResetController {
         if (user != null){
             let token = hash(Math.random().toString(36).substring(2));
             user.reset_token = token;
-            user.reset_at = null;
+            user.resetAt = null;
 
             user.save();
 
@@ -42,9 +42,10 @@ class ResetController {
         let user = await User.findBy('email', email);
 
         if(user.email == email && user.reset_token == params.token){
+            let now = new Date();
             user.password = password;
             user.reset_token = null;
-            user.reset_at = Date.now();
+            user.resetAt = now;
 
             user.save();
         }

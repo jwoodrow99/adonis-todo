@@ -9,8 +9,9 @@ class VerifyController {
         let user = await User.findOrFail(params.user_id);
         
         if(user.verify_token == params.token && user.verify_token != null){
-            user.verify_at = Date.now();
-            user.reset_at = Date.now();
+            let now = new Date();
+            user.verifyAt = now;
+            user.resetAt = now;
         }
 
         user.verify_token = null;
