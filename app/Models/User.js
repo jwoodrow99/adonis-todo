@@ -43,12 +43,12 @@ class User extends Model {
 
     // setter to format date field
     setVerifyAt(verifyAt){
-        return date.format(verifyAt, 'YYYY-MM-DD HH:mm:ss');
+        return date.format(verifyAt, 'YYYY-MM-DD HH:mm:ssZ');
     }
 
     // setter to format date field
     setResetAt(resetAt){
-        return date.format(resetAt, 'YYYY-MM-DD HH:mm:ss');
+        return date.format(resetAt, 'YYYY-MM-DD HH:mm:ssZ');
     }
 }
 
