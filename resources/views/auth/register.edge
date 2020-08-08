@@ -15,13 +15,13 @@
 
             <p>Email</p>
             <input type="text" name="email" id="email" placeholder="johndoe@example.com">
-            {{ elIf('<span>$self</span>', getErrorFor('email'), hasErrorFor('email')) }}
+            {{ elIf('<p class="flash flash-error">$self</p>', getErrorFor('email'), hasErrorFor('email')) }}
 
             <br><br>
 
             <p>Password</p>
             <input type="password" name="password" id="password">
-            {{ elIf('<span>$self</span>', getErrorFor('password'), hasErrorFor('password')) }}
+            {{ elIf('<p class="flash flash-error">$self</p>', getErrorFor('password'), hasErrorFor('password')) }}
 
             <br><br>
 

@@ -23,14 +23,17 @@ class RegisterController {
             verify_token: token
         });
 
-        await Mail.send('emails.verifyAccount', {
-            route: Env.get('APP_URL') + '/auth/verify/' + user.id + "/" + token
-        }, (message) => {
-            message
-                .to(user.email)
-                .from('service@tranquil-gorge-19560.herokuapp.com')
-                .subject('Verify your account')
-        })
+        if (user) {
+            await Mail.send('emails.verifyAccount', {
+                route: Env.get('APP_URL') + '/auth/verify/' + user.id + "/" + token
+            }, (message) => {
+                message
+                    .to(user.email)
+                    .from('service@tranquil-gorge-19560.herokuapp.com')
+                    .subject('Verify your account')
+            });
+            session.flash({ message: 'Check your email to verify your account!' });
+        }
 
         return response.redirect('/auth/login', false, 301);
     }

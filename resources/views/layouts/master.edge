@@ -11,6 +11,14 @@
     </head>
     <body>
 
+        @if(flashMessage('message'))
+            <p class="flash flash-message">{{ flashMessage('message') }}</p>
+        @endif
+
+        @if(flashMessage('error'))
+            <p class="flash flash-error">{{ flashMessage('error') }}</p>
+        @endif
+
         <header>
             @include('partials/header')
         </header>
